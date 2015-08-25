@@ -239,6 +239,7 @@ main > section > h1 + h2::after {
 	padding: 10px 15px;
 }
 #tblRates td.money, #tblRates td.apy {
+	white-space: nowrap;
 	text-align: right;
 }
 #tblRates td.money::before {
