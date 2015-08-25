@@ -1,0 +1,408 @@
+/*
+ * Ally Coding Challenge
+ * By Samuel B Grundman
+ * @author "Sam Grundman" <samuel@yodas.ws>
+ */
+
+/* Styling Reset */
+* { box-sizing: border-box; }
+/* Sorry for not knowing the exact font you wanted, but I personally like Trebuchet MS, while Open Sans is becoming widespread */
+:root { font-size: 12pt; font-family: 'Trebuchet MS', 'Open Sans', sans-serif; color: #505050; }
+html,body { width: 100%; padding: 0; margin: 0; }
+a:link, a:visited { text-decoration: underline; color: #2493c8; }
+a:link > img { border: 0 none; }
+label, input[type="submit"], input[type="button"] { cursor: pointer; }
+h1 > a:link, h1 > a:visited { text-decoration: none; }
+
+/* Flexbox Page Layout */
+body {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: flex-start;
+}
+body > header, body > footer {
+	flex: 0 0 100%;
+}
+body > main {
+	max-width: calc(900px - 210px);
+	padding-right: 1rem;
+	margin-bottom: 3rem;
+}
+body > aside {
+	max-width: 210px;
+	margin-bottom: 3rem;
+}
+body > header > nav,
+body > footer > div {
+	display: block;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+/* Main Menu */
+body > header {
+	background: #328fc2;
+	margin-bottom: 3rem;
+}
+body > header > nav > h1 {
+	font-size: 1.7rem;
+	display: inline-block;
+	line-height: 3rem;
+	text-transform: uppercase;
+	float: left;
+	margin: 0;
+}
+body > header > nav > h1 > a:link, body > nav > h1 > a:visited {
+	/* It's odd to not have the link fill the whole box.
+	 * I hate hovering over a box with a color change but the link is only on the text and my click did nothing */
+	display: block; width: 100%; height: 100%;
+	color: #1c254a;
+}
+body > header > nav > h1 img {
+	display: inline-block; vertical-align: top; height: 90%;
+}
+body > header > nav { text-align: right; }
+/* I like to style the links themselves rather than having superfluous, redundant, useless HTML wrapping the links */
+body > header > nav > a:link, body > header > nav > a:visited {
+	display: inline-block;
+	text-transform: lowercase;
+	color: white;
+	text-decoration: none;
+	line-height: 3rem;
+	font-size: 1rem;
+	padding: 0 13px;
+}
+body > header > nav > a:link.selected, body > header > nav > a:visited.selected,
+body > header > nav > a:link:hover, body > header > nav > a:visited:hover {
+	background: #006899;
+}
+body > header > nav > a:link:not(.selected):hover, body > header > nav > a:visited:not(.selected):hover {
+	/* Hover highlight optional, but my personal preference */
+	background: #1977a3;
+}
+
+/* Main Content */
+main > h1 {
+	font-size: 2rem;
+	font-weight: normal;
+	color: #6c025e;
+	margin-top: 0;
+}
+main > h2 {
+	font-size: 1rem;
+	color: #4d4d4d;
+	text-transform: capitalize;
+}
+main > h2::after {
+	display: inline; content: ':';
+}
+main > ul {
+	padding-left: 1.2em;
+}
+
+/* Mobile Info Section */
+main > aside {
+	background: #bbd8c4;
+	padding: 1rem;
+	padding-right: calc(104px + 3rem);
+	position: relative;
+}
+main > aside > h1 {
+	font-size: 1.1rem;
+	margin: 0;
+	color: #6e0269;
+}
+main > aside > h1 + p {
+	margin-top: 0.5em;
+}
+main > aside > p:last-of-type {
+	margin-bottom: 0;
+}
+main > aside > img {
+	position: absolute;
+	bottom: 1rem;
+	right: 2rem;
+}
+
+/* Aside Content */
+body > aside {
+	position: relative;
+}
+
+/* Login Button */
+input[type="submit"], a[href$="login"] {
+	display: block;
+	width: 100%;
+	font-weight: normal;
+	line-height: 2em;
+	font-size: 1.1rem;
+	color: white;
+	border: 0 none;
+	background: #650460;
+	text-decoration: none;
+	text-align: center;
+}
+input[type="submit"], a[href$="login"]:hover {
+	/* Hover highlight optional, but my personal preference */
+	background: #741d70;
+}
+
+/* News Section */
+/* I admit, using absolute, hard-coded positions is not great, but seems sufficient in a pinch */
+body > aside > h1 {
+	position: absolute; top: 4.5rem;
+	padding: 0 1rem; margin: 0;
+	background: #ddebe1;
+	font-size: 1.1rem;
+	line-height: 2em;
+	border: 1px solid #cbcbcb;
+	border-bottom: 0 none;
+	z-index: 0;
+	cursor: pointer;
+	color: #2493c8;
+}
+body > aside > h1:first-of-type { border-left: 0 none; }
+body > aside > h1:nth-of-type(2) {
+	left: 4.3rem;
+}
+body > aside > h1.selected {
+	top: 4rem; z-index: 2;
+	padding: .4rem 1rem 0;
+	background: #f5f5f5;
+	cursor: default;
+	color: inherit;
+}
+body > aside > div {
+	display: none;
+	z-index: 1;
+	position: relative;
+	padding: 1.5rem 1rem;
+	background: #f5f5f5;
+	margin-top: 4.4rem;
+	border-top: 1px solid #cbcbcb;
+}
+body > aside > h1.selected + div {
+	display: block;
+	/* Time permitting, I would have loved to add a fading in/out animation/transition.
+	 * Yes, jQuery's fadeIn/fadeOut would have been easy, but I'll let it go today. */
+}
+body > aside article:first-of-type > h1 { margin-top: 0; }
+body > aside article > h1 { margin-bottom: 0; }
+body > aside article > h1 + p { margin-top: 0; }
+body > aside > div > a:link, body > aside > div > a:visited {
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 2rem;
+}
+
+/* Rates Table */
+main > section > h1 {
+	font-weight: normal;
+}
+main > section > h1, main > section > h1 + h2 {
+	display: inline-block;
+	padding: .4rem 0;
+	font-size: 1.5rem;
+}
+main > section > h1 + h2 {
+	padding-left: 1rem;
+	border-left: 1px solid black;
+	margin-left: 1rem;
+}
+main > section > h1 + h2::after {
+	display: inline; content: '.';
+}
+#tblRates {
+	width: 100%;
+	border-collapse: collapse;
+}
+#tblRates > thead > tr:first-child > th:first-child {
+	visibility: hidden;
+}
+#tblRates > thead th {
+	font-weight: normal;
+	font-size: smaller;
+	text-align: right;
+}
+#tblRates > tbody > tr:first-child > td {
+	font-weight: bold;
+	font-size: 1.1em;
+}
+#tblRates > tbody > tr:nth-of-type(odd) > td {
+	background: #edf5ef;
+}
+#tblRates > tbody > tr:nth-of-type(even) > td {
+	background: #ddebe1;
+}
+#tblRates > tbody td {
+	padding: 10px 15px;
+}
+#tblRates td.money, #tblRates td.apy {
+	text-align: right;
+}
+#tblRates td.money::before {
+	display: inline; content: '$';
+}
+#tblRates td.apy::after {
+	display: inline; content: ' %';
+}
+#tblRates > tfoot td {
+	text-align: right;
+	font-size: small;
+}
+
+/* Page Footer */
+body > footer {
+	background: #e6e8e9;
+	min-height: 100px;
+}
+body > footer > div {
+	text-align: right;
+}
+body > footer small {
+	line-height: 2rem;
+	float: left;
+}
+body > footer a:link, body > footer a:visited {
+	text-decoration: none;
+	line-height: 2rem;
+	font-size: 1rem;
+}
+body > footer > div > a:link, body > footer > div > a:visited {
+	display: inline-block;
+	text-transform: lowercase;
+	padding: 0 13px;
+}
+body > footer > div > a:link.selected, body > footer > div > a:visited.selected {
+	font-weight: bold;
+}
+
+/* Modals */
+#modalbg.hidden {
+	opacity: 0;
+}
+#modalbg {
+	display: none;
+	top: 0; left: 0;
+	position: fixed;
+	z-index: 100;
+	width: 100%; width: 100vw;
+	height: 100%; height: 100vh;
+	opacity: .5;
+	background: black;
+	/* Animation/Transition always adds a nice, subtle effect to a UI */
+	transition: opacity .2s;
+}
+#loginbox.hidden {
+	opacity: 0;
+}
+#loginbox {
+	display: none;
+	position: fixed;
+	z-index: 101;
+	min-width: 400px;
+	min-height: 200px;
+	top: 0; left: 0;
+	top: calc(50% - 100px); left: calc(50% - 200px);
+	top: calc(50vh - 100px); left: calc(50vw - 200px);
+	background: white;
+	border: 2px solid black;
+	padding: 1.5rem;
+	opacity: 1;
+	/* Animation/Transition always adds a nice, subtle effect to a UI */
+	transition: opacity .3s;
+}
+/* Notice the lack of useless HTML with this method */
+#loginbox::after {
+	display: block; content: ''; float: none; clear: both;
+}
+#loginbox > a {
+	position: absolute;
+	top: .5rem; right: .5rem;
+}
+#loginbox > b {
+	display: block;
+	font-size: 1.7rem;
+	font-weight: normal;
+	text-transform: capitalize;
+	margin-bottom: 1em;
+}
+#loginbox > label {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: .5em;
+}
+#loginbox input[type="text"], #loginbox input[type="password"] {
+	display: block;
+	padding: 5px 20px;
+	border: 1px solid #378cc4;
+	width: 250px;
+}
+#loginbox input[type="submit"] {
+	float: right;
+	width: 150px;
+	padding: 0;
+	margin-top: .5em;
+}
+
+/* Responsive Design FTW */
+@media (max-width: 920px) {
+	/* First, switch to single column */
+	body > aside {
+		max-width: 95%; max-width: 95vw;
+		width: calc(900px - 210px);
+		padding: 0 1rem;
+	}
+	body > header > nav > h1 {
+		margin: 0 10px;
+	}
+	body > aside > h1:nth-of-type(2) {
+		left: 5.3rem;
+	}
+	body > main {
+		padding: 0 1rem;
+	}
+	body > aside > a[href$="login"] {
+		width: 210px;
+		margin: 0 auto;
+	}
+	body > footer {
+		min-height: none;
+	}
+	body > footer > div {
+		text-align: center;
+	}
+	body > footer > div > small {
+		float: none;
+		display: block;
+	}
+	body > footer > div > a:link, body > footer > div > small {
+	}
+}
+@media (max-width: 700px) {
+	body > header > nav {
+		text-align: center;
+	}
+	body > header > nav > h1 {
+		display: block;
+		float: none; margin: 0;
+		text-align: center;
+	}
+	body > header > nav > a:link, body > header > nav > a:visited {
+		display: inline-block;
+	}
+	body > header > nav > a[href="/"] {
+		display: none;
+	}
+}
+@media (max-width: 400px) {
+	body > header > nav > a:link, body > header > nav > a:visited {
+		display: block;
+	}
+	body > header > nav > a[href="/"] {
+		display: none;
+	}
+}

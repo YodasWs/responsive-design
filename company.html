@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>URBank</title>
+<link rel="icon" type="image/png" href="favicon.ico" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" href="style.css"/>
+<script src="script.js" async></script>
+<!--[if lte IE 9]><link rel="stylesheet" href="ie9.css"/><![endif]-->
+<script>
+if (window.navigator.userAgent.indexOf('MSIE 10') > -1)
+	document.write('<link rel="stylesheet" href="ie10.css"/>')
+</script>
+</head>
+<body>
+<header>
+	<nav>
+		<h1><a href="#"><img src="img/logo.png" alt="URBank"/>URBank</a></h1>
+		<a href="#">Home</a>
+		<a href="#">Employee</a>
+		<a href="/responsive-design/company.html" class="selected">Company</a>
+		<a href="#">Services</a>
+		<a href="#">Contact</a>
+	</nav>
+</header>
+<main>
+	<h1>Best Bank Ever!</h1>
+	<p>Pellentesque habitant morbi tristique senectus et netus et <a href="#">malesuada</a> fames ac turpis egestas. Vestibulum
+		tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas egestas semper.
+		Aenaen ultricies mi vitae est. Mauris <a href="#">placerat</a> eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.</p>
+	<h2>Reasons we're awesome</h2>
+	<ul>
+		<li>Loream ipsum dolor sit amet.</li>
+		<li>Aliquam tincidunt mauris eu risus.</li>
+		<li>Loream ipsum dolor sit amet.</li>
+		<li>Loream ipsum dolor sit amet.</li>
+		<li>Vestibulum auctor dapibus neque.</li>
+	</ul>
+	<aside>
+		<h1>Amazing Mobile Info</h1>
+		<p>Pellentesque habitant morbi tristique senectus et netus et <a href="#">malesuada</a> fames ac turpis egestas. Vestibulum
+			tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+		<img src="img/phone.png" alt="This website is designed to work on your mobile phone"/>
+	</aside>
+	<section>
+		<h1>Rates</h1>
+		<h2>Check them out</h2>
+		<table id="tblRates">
+			<thead>
+				<tr>
+					<th>Bank</th>
+					<th>Annual Percentage Yield</th>
+					<th>Est. Earnings for 1 Year*</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td colspan="3">*Based on $50,000 deposit.</td>
+				</tr>
+			</tfoot>
+		</table>
+	</section>
+</main>
+<aside>
+	<a href="/login">Login</a>
+	<h1 class="selected">News</h1>
+	<div>
+		<article>
+			<h1><a href="#">Lorem ipsum dolor</a></h1>
+			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis</p>
+		</article>
+		<article>
+			<h1><a href="#">Lorem ipsum dolor</a></h1>
+			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis</p>
+		</article>
+		<article>
+			<h1><a href="#">Lorem ipsum dolor</a></h1>
+			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis</p>
+		</article>
+	</div>
+	<h1>Archive</h1>
+	<div>
+		<a href="#">Lorem ipsum dolor</a>
+		<a href="#">Lorem ipsum dolor</a>
+		<a href="#">Lorem ipsum dolor</a>
+		<a href="#">Lorem ipsum dolor</a>
+		<a href="#">Lorem ipsum dolor</a>
+		<a href="#">Lorem ipsum dolor</a>
+		<a href="#">Lorem ipsum dolor</a>
+		<a href="#">Lorem ipsum dolor</a>
+	</div>
+</aside>
+<footer>
+	<div>
+		<small><a href="#">&copy; 2014 URBank</a></small>
+		<a href="#">Home</a>
+		<a href="#">Employee</a>
+		<a href="/company.html" class="selected">Company</a>
+		<a href="#">Services</a>
+		<a href="#">Contact</a>
+	</div>
+</footer>
+<div id="modalbg" class="hidden"></div>
+<form id="loginbox" method="post" action="/login" class="hidden">
+	<a href="#"><img src="img/close.png" alt="Close"/></a>
+	<b>Sign in to your account</b>
+	<label>Username<input type="text" /></label>
+	<label>Password<input type="password" /></label>
+	<input type="submit" value="Login"/>
+</form>
+</body>

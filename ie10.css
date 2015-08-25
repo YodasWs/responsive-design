@@ -1,0 +1,29 @@
+/*
+ * Ally Coding Challenge
+ * By Samuel B Grundman
+ * @author "Sam Grundman" <samuel@yodas.ws>
+ */
+
+body {
+	display: -ms-flexbox;
+	-ms-flex-direction: row;
+	-ms-flex-wrap: wrap;
+	-ms-flex-align: start;
+	-ms-flex-pack: center;
+}
+body > * {
+	display: block;
+}
+body > header, body > footer {
+	-ms-flex: 0 0 100%;
+}
+#loginbox > label {
+	display: -ms-flexbox;
+	-ms-flex-direction: row;
+	-ms-flex-wrap: wrap;
+	-ms-flex-align: center;
+	-ms-flex-pack: justify;
+}
+#loginbox > label > * {
+	display: block;
+}

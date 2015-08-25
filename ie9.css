@@ -1,0 +1,15 @@
+/*
+ * Ally Coding Challenge
+ * By Samuel B Grundman
+ * @author "Sam Grundman" <samuel@yodas.ws>
+ */
+
+body { text-align: center; }
+body > * { text-align: left; }
+body > aside, body > main {
+	display: inline-block;
+	vertical-align: top;
+}
+body > main {
+	margin-left: auto;
+}
